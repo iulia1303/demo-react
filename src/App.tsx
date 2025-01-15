@@ -1,37 +1,51 @@
-import React from 'react';
-import SensorList from './components/SensorList';
-import SensorDetails from './components/SensorDetails';
-import SensorChart from './components/SensorChart';
-import PieChart from './components/PieChart';
-import LogList from "./components/LogList";
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './index.css'; // Your existing index.css
+import Dashboard from './pages/Dashboard';
+import History from './pages/History';
+import Administration from './pages/Administration';
+import Settings from './pages/Settings';
 
 const App = () => {
-    const sensors = [
-        {id: 1, name: 'Temperature Sensor', status: 'Active'},
-        {id: 2, name: 'Humidity Sensor', status: 'Inactive'},
-        {id: 3, name: 'Pressure Sensor', status: 'Active'}
-    ];
+    const [menuVisible, setMenuVisible] = useState(false);
 
-    const selectedSensor = sensors[0]; // Default selected sensor
+    // Toggle menu visibility
+    const toggleMenu = () => setMenuVisible((prev) => !prev);
 
     return (
-        <div className="app-container">
-            <h1>Sensors Dashboard</h1>
-            <div className="sensors-container">
-                <div className="sensors-dashboard">
-                    <div className="sensor-list-container">
-                        <SensorList sensors={sensors}/>
+        <Router>
+            <div className="app-container">
+                {/* Header */}
+                <header className="app-header">
+                    <div className="header-top">
+                        <span className="menu-icon" onClick={toggleMenu}>☰</span>
+                        <h1>Sensors Dashboard</h1>
                     </div>
-                        <LogList/>
-                        <PieChart/>
-                </div>
-                <div className="sensor-details-chart-container">
-                    <SensorDetails sensor={selectedSensor}/>
-                    <SensorChart/>
-                        <LogList/>
-                </div>
+                </header>
+
+                {/* Menu Section */}
+                {menuVisible && (
+                    <nav className="menu-section">
+                        <ul className="menu-list">
+                            <li><Link to="/">Dashboard</Link></li>
+                            <li><Link to="/history">History</Link></li>
+                            <li><Link to="/administration">Administration</Link></li>
+                            <li><Link to="/settings">Settings</Link></li>
+                        </ul>
+                    </nav>
+                )}
+
+                {/* Main Content */}
+                <main>
+                    <Routes>
+                        <Route path="/" element={<Dashboard/>}/>
+                        <Route path="/history" element={<History/>}/>
+                        <Route path="/administration" element={<Administration/>}/>
+                        <Route path="/settings" element={<Settings/>}/>
+                    </Routes>
+                </main>
             </div>
-        </div>
+        </Router>
     );
 };
 

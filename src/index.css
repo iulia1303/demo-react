@@ -1,15 +1,150 @@
+/* Header Styling */
+.app-header {
+  padding: 10px 20px;
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Menu Section */
+.menu-section {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-list li {
+  margin: 10px 0;
+}
+
+.menu-list a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  padding: 10px 15px;
+  display: block;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-list a:hover {
+  background-color: #e0e0e0;
+  color: #007bff;
+}
+
+/* Main Dashboard Content */
+.dashboard-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Left Column */
+.left-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sensor-list-container,
+.pie-chart-container {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.log-list-container {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.log-list {
+  padding: 10px;
+  border-radius: 8px;
+}
+/* Right Column */
+.right-column {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sensor-details,
+.sensor-chart {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Buttons */
+.sidebar-buttons {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-buttons button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.sidebar-buttons button:hover {
+  background-color: #0056b3;
+}
+
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
 .app-container {
   font-family: Arial, sans-serif;
@@ -19,17 +154,44 @@ code {
 .sensors-container {
   display: flex;
 }
-.sensors-dashboard {
-  display: flex;
-}
 
 .sensor-list {
   flex: 1;
-  margin-right: 20px;
+  align-items: flex-start;
+  align-content: flex-start;
+  align-self: flex-start;
 }
 
+/* Sensor Item Styling */
 .sensor-item {
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  margin-left: -40px;
+  padding: 5px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sensor-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.sensor-status {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.sensor-status {
+  margin: 5px 0 0 0;
+  font-size: 14px;
+  color: #555;
 }
 
 .sensor-details-chart-container {
@@ -68,7 +230,7 @@ code {
   gap: 20px;
 }
 
-.sensor-list-container, .log-list-container {
+ .log-list-container {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -100,7 +262,7 @@ h1 {
   text-align: center;
 }
 
-.sensor-list-container, .log-list-container {
+.log-list-container {
   padding: 20px;
 }
 
@@ -163,4 +325,3 @@ h1 {
 .view-details:hover {
   background-color: #ffffff;
 }
-
